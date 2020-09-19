@@ -5,6 +5,7 @@ line = 'XXX'
 wordlist = []
 text = []
 good = []
+options = []
 
 stringb = re.split(' ', stringa)
 
@@ -16,7 +17,6 @@ while line:
 for x in stringb:
     if x != None:
         wordlist.append(x)
-
 
 def editDistDP(str1, str2, m, n):
 
@@ -40,21 +40,10 @@ def editDistDP(str1, str2, m, n):
                 dp[i][j] = dp[i-1][j-1]
 
             else:
-                def stats(iterable):
-                    it = iter(iterable)
-                    first = next(it)
-                    minimum = maximum = cumsum = first
-                    n = 1
-                    for x in it:
-                        n += 1
-                        cumsum += x
-                        if x < minimum:
-                            minimum = x
-                            return minimum
-                dp[i][j] = 1 + min(addition(i,j),        # Insert
+                dp[i][j] = 1 + min(addition(i,j),       # Insert
                                    remove(i,j),        # Remove
                                    replace(i,j))    # Replace
-
+                
     return dp[m][n]
 
 for word in range(len(wordlist)):
