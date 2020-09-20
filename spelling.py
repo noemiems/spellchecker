@@ -1,6 +1,6 @@
 import re
 stringa = "bonana chocuulate beaitufil boatt carr cardz pizza pianno energet thouh"
-IN = open("words_alpha.txt")
+IN = open("dictionary.txt")
 line = 'XXX'
 wordlist = []
 good = []
