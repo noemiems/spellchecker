@@ -70,42 +70,27 @@ for word in range(len(wordlist)):
     alphalist(str1, newlista)
     alphalist(good, newlistb)
 
-    if len(newlista) >= len(newlistb) :
-        for y in range(len(newlista)):
-            if len(newlistb) != 0:
-                finalchar = newlista[-1]
-                finalcharb = newlistb[-1]
-                if finalchar != finalcharb:
-                    if newlista[-2] == newlistb[-1]:
-                        solution.append("Deletion")
-                        newlista.pop(-1)
-                    else:
-                       solution.append("Substitution")
-                newlista.pop(-1)
-                newlistb.pop(-1)
-            if len(newlistb) == 0:
-                if len(newlista) != 0:
-                    solution.append("Deletion")
-                    newlista.pop(-1)
-
-    if len(newlista) < len(newlistb) :
-        for z in range(len(newlistb)):
-            if len(newlista) != 0:
-                finalchar = newlista[-1]
-                finalcharb = newlistb[-1]
-                if finalchar != finalcharb:
-                    if newlistb[-2] == newlista[-1]:
-                        solution.append("Insertion")
-                        newlistb.pop(-1)
-                    else:
-                        solution.append("Substitution")
-                newlista.pop(-1)
-                newlistb.pop(-1)
-            if len(newlista) == 0:
-                if len(newlistb) != 0:
-                    solution.append("Insertion")
-                    newlistb.pop(-1)
+    def something(a, b, c, d):
+        if len(a) >= len(b) :
+            for y in range(len(a)):
+                if len(b) != 0:
+                    finalchar = a[-1]
+                    finalcharb = b[-1]
+                    if finalchar != finalcharb:
+                        if a[-2] == b[-1]:
+                            c.append(d)
+                            a.pop(-1)
+                        else:
+                            c.append("Substitution")
+                    a.pop(-1)
+                    b.pop(-1)
+                if len(b) == 0:
+                    if len(a) != 0:
+                        c.append(d)
+                        a.pop(-1)
+    something(newlista, newlistb, solution, "Deletion")
+    something(newlistb, newlista, solution, "Insertion")
 
     sumactions = len(solution)
 
-    print('The best correction for', str1, 'is', good, '\n', 'The minimum number of operations is', sumactions,'\n','The operations are the following:', solution)
+    print('The best correction for', str1, 'is', good, '\n', 'The Levenshtein distance is', sumactions,'\n','The operations are the following:', solution)
