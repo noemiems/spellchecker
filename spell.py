@@ -42,11 +42,6 @@ def editDistDP(str1, str2, m, n):
 
     return dp[m][n]
 
-def alphalist(a,b):
-    for x in range(len(a)):
-        for y in range(len(a[x])):
-            b.append(a[x])
-
 for word in range(len(wordlist)):
     solution = []
     if wordlist[word] not in text:
@@ -60,6 +55,11 @@ for word in range(len(wordlist)):
                 sortdict = sorted(dict.items(), key=lambda x:x[1])
         for item in range(len(sortdict)):
             good = sortdict[0][0]
+
+    def alphalist(a,b):
+        for x in range(len(a)):
+            for y in range(len(a[x])):
+                b.append(a[x])
 
     alphalist(str1, newlista)
     alphalist(good, newlistb)
