@@ -23,12 +23,6 @@ for x in stringb:
 def editDistDP(str1, str2, m, n):
 
     dp = [[0 for x in range(n + 1)] for x in range(m + 1)]
-    def addition(a,b):
-        return dp[a][b-1]
-    def remove(a,b):
-        return dp[a-1][b]
-    def replace(a,b):
-        return dp[a-1][b-1]
     for i in range(m + 1):
         for j in range(n + 1):
 
@@ -42,9 +36,9 @@ def editDistDP(str1, str2, m, n):
                 dp[i][j] = dp[i-1][j-1]
 
             else:
-                dp[i][j] = 1 + min(addition(i,j),
-                                   remove(i,j),
-                                   replace(i,j))
+                dp[i][j] = 1 + min(dp[i][j-1],
+                                   dp[i-1][j],
+                                   dp[i-1][j-1])
 
     return dp[m][n]
 
